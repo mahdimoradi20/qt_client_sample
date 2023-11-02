@@ -19,7 +19,9 @@ void Dialog::on_btnLogin_clicked()
     QString validation =validate();
     if(validation == "none"){
         //Move to main dialog
-
+        MainDialog *dialog = new MainDialog(nullptr , ui->textIPAddress->text() , ui->textUsername->text() , ui->textPassword->text());
+        dialog->show();
+        this->close();
     }else{
         QMessageBox::warning(this , "خطا" , validation);
     }

@@ -3,6 +3,7 @@
 
 #include <QDialog>
 #include <QMessageBox>
+#include "maindialog.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class Dialog; }
