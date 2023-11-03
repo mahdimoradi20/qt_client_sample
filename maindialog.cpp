@@ -79,6 +79,14 @@ void MainDialog::data_recived(QJsonDocument data)
         }
 
 
+    }else if(data["action"].toString() == "logout"){
+        if(data["status"].toString() == "ok"){
+            this->close();
+            return;
+        }else{
+            QMessageBox::critical(this , "خطا" , "خطایی پیش آمد" );
+        }
+
     }
 }
 
@@ -201,3 +209,30 @@ void MainDialog::clearInputs()
 
 }
 
+void MainDialog::logout()
+{
+    QVariantMap map;
+    QSettings qsettings("config.cfg");
+
+    map.insert("action" , "logout");
+    map.insert("access_token" ,qsettings.value("access_token"));
+
+    client.send(map);
+
+}
+
+
+void MainDialog::on_btnExit_clicked()
+{
+    QMessageBox::StandardButton reply = QMessageBox::question(this,"خروج" , "آیا از خروج مطمئن هستید؟");
+    if (reply == QMessageBox::Yes) {
+        logout();
+    }
+}
+
+
+
+void MainDialog::closeEvent(QCloseEvent *event)
+{
+    logout();
+}

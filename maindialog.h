@@ -39,6 +39,8 @@ private slots:
     void on_btnSubmit_clicked();
 
 
+    void on_btnExit_clicked();
+
 private:
     Ui::MainDialog *ui;
 
@@ -56,7 +58,12 @@ private:
 
     QString validate();
     void clearInputs();
+    void logout();
 
+
+    // QWidget interface
+protected:
+    void closeEvent(QCloseEvent *event);
 };
 
 
