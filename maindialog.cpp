@@ -46,7 +46,7 @@ void MainDialog::data_recived(QJsonDocument data)
     if(data["action"].toString() == "login"){
 
         if(data["status"].toString() == "ok"){
-            QMessageBox::information(this , "hh" , data["full_name"].toString());
+            ui->txtHeader->setText(" کاربر " + data["full_name"].toString() + " خوش آمدید ");
             return;
         }
 
@@ -64,3 +64,31 @@ void MainDialog::data_recived(QJsonDocument data)
         this->close();
     }
 }
+
+void MainDialog::on_checkAgreement_stateChanged(int arg1)
+{
+    if(arg1)ui->btnSubmit->setEnabled(true);
+    else ui->btnSubmit->setEnabled(false);
+
+}
+
+
+void MainDialog::on_spinHealth_textChanged(const QString &arg1)
+{
+    ui->progressHealth->setValue(arg1.toInt());
+}
+
+
+void MainDialog::on_btnColor_clicked()
+{
+    QColor color = QColorDialog::getColor(Qt::blue, this );
+    if( color.isValid() )
+    {
+        ui->btnColor->setText(color.name());
+        ui->btnColor->setStyleSheet("background-color: " + color.name());
+
+    }else{
+        QMessageBox::critical(this , "خطا" , "رنگ انتخاب شده معتبر نیست");
+    }
+}
+

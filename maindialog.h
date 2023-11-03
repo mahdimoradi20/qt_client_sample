@@ -5,6 +5,7 @@
 #include "client.h"
 #include<QMessageBox>
 #include<QJsonDocument>
+#include<QColorDialog>
 #include "dialog.h"
 
 namespace Ui {
@@ -22,6 +23,12 @@ public:
 private slots:
     void success();
     void data_recived(QJsonDocument data);
+
+    void on_checkAgreement_stateChanged(int arg1);
+
+    void on_spinHealth_textChanged(const QString &arg1);
+
+    void on_btnColor_clicked();
 
 private:
     Ui::MainDialog *ui;
