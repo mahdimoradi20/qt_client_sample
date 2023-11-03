@@ -6,6 +6,10 @@
 #include<QMessageBox>
 #include<QJsonDocument>
 #include<QColorDialog>
+#include<QStandardItem>
+#include<QStandardItemModel>
+#include<QSettings>
+
 #include "dialog.h"
 
 namespace Ui {
@@ -30,16 +34,30 @@ private slots:
 
     void on_btnColor_clicked();
 
+    void init_set_places_model();
+
+    void on_btnSubmit_clicked();
+
+
 private:
     Ui::MainDialog *ui;
 
     QString host;
     QString username;
     QString password;
+    QString color = "none";
+    QString place = "none";
 
     Client client;
 
+    QStandardItemModel model;
+
     bool connected = false;
+
+    QString validate();
+    void clearInputs();
+
 };
+
 
 #endif // MAINDIALOG_H

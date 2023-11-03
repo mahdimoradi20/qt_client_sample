@@ -19,9 +19,9 @@
   <widget class="QLabel" name="txtHeader">
    <property name="geometry">
     <rect>
-     <x>420</x>
+     <x>340</x>
      <y>10</y>
-     <width>131</width>
+     <width>211</width>
      <height>41</height>
     </rect>
    </property>
@@ -163,6 +163,9 @@
     </property>
     <property name="text">
      <string>مرد</string>
+    </property>
+    <property name="checked">
+     <bool>true</bool>
     </property>
    </widget>
    <widget class="QRadioButton" name="radioFemale">
@@ -554,7 +557,7 @@
      <x>320</x>
      <y>450</y>
      <width>211</width>
-     <height>101</height>
+     <height>131</height>
     </rect>
    </property>
    <layout class="QHBoxLayout" name="horizontalLayout_6">
@@ -577,6 +580,7 @@
       <property name="font">
        <font>
         <family>IRANSans</family>
+        <pointsize>8</pointsize>
         <bold>false</bold>
        </font>
       </property>
